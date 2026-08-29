@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --bg-cream: #F9F5F0;
+            --dark-maroon: #3B2422;
+            --btn-rose: #B2706B;
+            --nav-line: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-cream);
+            color: var(--dark-maroon);
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--nav-line);
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark-maroon);
+            transition: opacity 0.2s;
+        }
+        .logo-link:hover { opacity: 0.8; }
+        
+        .nav-book-logo { height: 40px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; }
+        .nav-links a { text-decoration: none; color: #555; margin: 0 15px; font-size: 14px; font-weight: 500; }
+        
+        .btn-support { 
+            background-color: var(--btn-rose); 
+            color: white !important; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-support:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* UPDATED: Aesthetic Separator with Text */
+        .aesthetic-separator { 
+            width: 100%; 
+            height: 45px; 
+            background-color: var(--dark-maroon); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        .separator-text {
+            color: rgba(249, 245, 240, 0.9);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            word-spacing: 3px;
+        }
+
+        header.hero { text-align: center; padding: 80px 20px 60px 20px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 82px; margin: 0; letter-spacing: -3px; line-height: 0.9; }
+        .hero p { font-size: 19px; max-width: 600px; margin: 30px auto; line-height: 1.6; color: #5a4b49; }
+        
+        .hero-img {
+            width: 85%;
+            max-width: 950px;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .moving-bar-break {
+            background-color: var(--dark-maroon);
+            color: var(--bg-cream);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0;
+        }
+
+        .scrolling-text { display: inline-block; animation: scroll 20s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        .rubric-fix-section { background: white; padding: 100px 10%; text-align: center; }
+        .sponsor-grid { display: flex; justify-content: center; gap: 40px; margin-top: 50px; flex-wrap: wrap; }
+        
+        .sponsor-logo { 
+            width: 170px; 
+            height: 170px; 
+            background: var(--dark-maroon); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 15px; 
+            font-weight: 600;
+            color: white;
+            transition: 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        
+        .sponsor-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.6;
+            transition: 0.4s ease;
+        }
+        
+        .sponsor-logo::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            z-index: 1;
+        }
+
+        .sponsor-logo:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .sponsor-logo:hover img { opacity: 0.9; transform: scale(1.1); }
+        
+        .sponsor-logo span { 
+            position: relative; 
+            z-index: 2; 
+            padding: 15px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .goals-list { margin-top: 60px; text-align: left; display: inline-block; max-width: 600px; }
+        .goals-list ul { font-size: 20px; line-height: 2; color: #5a4b49; list-style-type: '✔ '; }
+
+        .mission-split {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-text-container { flex: 1; }
+        .mission-title { font-family: 'Playfair Display', serif; font-size: 52px; line-height: 1.1; font-weight: 800; margin-bottom: 30px; }
+        .mission-paragraph { font-size: 18px; line-height: 1.7; color: #5a4b49; max-width: 450px; }
+        .mission-img-container { flex: 1; text-align: right; }
+        .mission-img { width: 400px; height: 500px; object-fit: cover; border-radius: 8px; }
+
+        .pillars-section { max-width: 900px; margin: 80px auto 120px auto; padding: 0 20px; }
+        .pillar-item { border-top: 1px solid var(--dark-maroon); }
+        .pillar-item:last-child { border-bottom: 1px solid var(--dark-maroon); }
+        .pillar-trigger { width: 100%; background: none; border: none; text-align: left; padding: 30px 0; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--dark-maroon); }
+        
+        .pillar-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.4s ease-out; 
+            font-size: 16px; 
+            line-height: 1.6; 
+            color: #666; 
+        }
+
+        .pillar-inner {
+            display: flex;
+            gap: 30px;
+            padding-bottom: 30px;
+            align-items: center;
+        }
+        
+        .pillar-text { flex: 2; }
+        .pillar-image-container { flex: 1; }
+        .pillar-image-container img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer { background-color: white; padding: 80px 50px; border-top: 1px solid var(--nav-line); display: flex; justify-content: space-between; }
+        .ext-link { color: var(--btn-rose); text-decoration: none; font-weight: bold; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .ext-link:hover { border-bottom: 2px solid var(--btn-rose); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-link">
+            <img src="https://codehs.com/uploads/7889b9b5566baa8f49db6e35c5961f2e" alt="Logo" class="nav-book-logo">
+            <div class="logo-text">Love for Literacy</div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Calendar.html">Events</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="contact.html" class="btn-support">Support Our Mission</a>
+        </div>
+    </nav>
+
+    <div class="aesthetic-separator">
+        <strong><span class="separator-text"> ¨Books with no bounds. Learning with no limit.¨</span></strong>
+    </div>
+
+    <header class="hero">
+        <h1>Love for Literacy</h1>
+        <p>Book donation program focused on promoting literacy and providing educational resources for Tennessee's Low income communities.</p>
+        <img src="https://codehs.com/uploads/d1d2f6518698ba5b33277f78eb63de76" alt="Book Stack" class="hero-img">
+    </header>
+
+    <main>
+        <div class="moving-bar-break">
+            <div class="scrolling-text">
+                LOVE FOR LITERACY — PLANTING SEEDS OF KNOWLEDGE — SUPPORT CHILDRENS EDUCATION — LOVE FOR LITERACY — 
+            </div>
+            <div class="scrolling-text">
+                LOVE FOR LITERACY — PLANTING SEEDS OF KNOWLEDGE — SUPPORT CHILDRENS EDUCATION — LOVE FOR LITERACY — 
+            </div>
+        </div>
+
+        <section class="rubric-fix-section">
+            <h2 style="font-family: 'Playfair Display'; font-size: 38px;">Our Growth & Community Impact</h2>
+            <div class="sponsor-grid">
+                
+                <div class="sponsor-logo">
+                    <img src="https://codehs.com/uploads/8f5b42f34833acb41e32814ac3a55c74" alt="Partnerships">
+                    <span>Local Partners</span>
+                </div>
+
+                <div class="sponsor-logo">
+                    <img src="https://codehs.com/uploads/60e268c9ddc4ccf8648ca55a5666d71e" alt="Rural Outreach">
+                    <span>Rural Reach</span>
+                </div>
+
+                <div class="sponsor-logo">
+                    <img src="https://codehs.com/uploads/141850144f4be513ca93070c51007d43" alt="Grant Funding">
+                    <span>Grant Funding</span>
+                </div>
+
+                <div class="sponsor-logo">
+                    <img src="https://codehs.com/uploads/eb981f9ce711844e7e1477a447ed4724" alt="Book Quality">
+                    <span>Book Quality</span>
+                </div>
+
+                <div class="sponsor-logo">
+                    <img src="https://codehs.com/uploads/330df6755c14b6ce124fe58bf41a39ef" alt="Volunteers">
+                    <span>Volunteers</span>
+                </div>
+
+            </div>
+            
+            <div class="goals-list">
+                <h3 style="font-family: 'Playfair Display';"> Our Semester Road Map</h3>
+                <ul>
+                    <li>Partner with four new target schools in low income Tennessee.</li>
+                    <li>Launch the "MediaMail" initiative to ship bulk donations.</li>
+                    <li>Secure corporate sponsorships for weekend sorting events.</li>
+                    <li>Host community book bins at local Farragut businesses.</li>
+                    <li>Maintain a 95% satisfaction rate with partner educators.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mission-split">
+            <div class="mission-text-container">
+                <div class="mission-title">Our mission is to<br> plant seeds of<br> knowledge <br> through books.</div>
+                <p class="mission-paragraph">
+                    We believe that every child, regardless of their location, deserves access to the magic of reading. Our program works tirelessly to bridge the gap between suburban resources and rural needs.
+               <br>
+               <br>
+               <strong>In Tennessee, ¨17% of kids who aren't on grade level reading by 3rd grade don’t end up graduating.¨ <br>
+              <br> 
+              Our mission is to fix that.</strong>
+               
+                </p>
+            </div>
+            <div class="mission-img-container">
+                <img src="https://codehs.com/uploads/118b1a549c3dfb9252ae1662f281ecdf" class="mission-img" alt="Mission Image">
+            </div>
+        </section>
+
+        <section class="pillars-section">
+            <h2 style="font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 40px;">Our Structural Pillars</h2>
+            
+            <div class="pillar-item">
+                <button class="pillar-trigger" onclick="togglePillar(this)">01 Book Sourcing <span>+</span></button>
+                <div class="pillar-content">
+                    <div class="pillar-inner">
+                        <div class="pillar-text">
+                            <p>We carefully curate and select K-12 literature that meets the specific needs of rural libraries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar-item">
+                <button class="pillar-trigger" onclick="togglePillar(this)">02 Community Outreach <span>+</span></button>
+                <div class="pillar-content">
+                    <div class="pillar-inner">
+                        <div class="pillar-text">
+                            <p>We build bridges between local donors and underserved student populations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar-item">
+                <button class="pillar-trigger" onclick="togglePillar(this)">03 Donation Logistics <span>+</span></button>
+                <div class="pillar-content">
+                    <div class="pillar-inner">
+                        <div class="pillar-text">
+                            <p>We manage the heavy lifting, from sorting and packing to final delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <h2 style="font-family: 'Playfair Display';">Love for Literacy</h2>
+            <p>11237 Kingston Pike, Knoxville, TN 37934</p>
+        </div>
+        <div>
+            <p>View our <a href="https://docs.google.com/document/d/1M59ormwjHiOo_ORlnxJPCHl1DWZqfbhFBadfF3_2IU4/edit?usp=sharing" target="_blank" class="ext-link">Official Club Outline &rarr;</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePillar(btn) {
+            const content = btn.nextElementSibling;
+            const span = btn.querySelector('span');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                span.innerText = "+";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                span.innerText = "-";
+            }
+        }
+    </script>
+
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>

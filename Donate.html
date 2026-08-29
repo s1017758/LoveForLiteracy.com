@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --bg-cream: #F9F5F0;
+            --dark-maroon: #3B2422;
+            --btn-rose: #B2706B;
+            --nav-line: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-cream);
+            color: var(--dark-maroon);
+        }
+
+        /* Structural Tag: Nav */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .nav-book-logo { height: 40px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; }
+        .nav-links a { text-decoration: none; color: #555; margin: 0 15px; font-size: 14px; font-weight: 500; }
+
+        /* Structural Tag: Header */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: white;
+            border-bottom: 45px solid var(--dark-maroon);
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 64px; margin: 0; }
+
+        /* Structural Tag: Main */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .donate-intro {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5a4b49;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+        }
+
+        /* Rubric: 5 Images Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .img-placeholder {
+            background-color: #E8E4DF;
+            height: 180px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        /* Rubric: 5 List Items */
+        .contribution-list {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contribution-list h2 { font-family: 'Playfair Display', serif; margin-top: 0; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 15px; font-size: 17px; }
+
+        /* Structural Tag: Footer */
+        footer {
+            text-align: center;
+            padding: 80px 50px;
+            background: white;
+            margin-top: 60px;
+            border-top: 1px solid var(--nav-line);
+        }
+
+        .external-btn {
+            display: inline-block;
+            background-color: var(--btn-rose);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://codehs.com/uploads/7889b9b5566baa8f49db6e35c5961f2e" alt="Logo" class="nav-book-logo">
+            <div class="logo-text">Love for Literacy</div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Calendar.html">Events</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Support the Mission</h1>
+    </header>
+
+    <main>
+        <section class="donate-intro">
+            <p>
+                Your generosity is the fuel that keeps our delivery vans moving and our bookshelves stocked. In rural Knoxville, many children live miles away from the nearest public library, making your donations their primary gateway to new worlds. Whether you are gifting a single used book or contributing a financial grant, you are directly impacting a student's ability to succeed in the classroom and beyond. Together, we can ensure that "The End" of one chapter is just the beginning of a lifelong love for reading.
+            </p>
+        </section>
+
+        <section class="image-grid">
+            <div class="img-placeholder">[Image: Box of New Books]</div>
+            <div class="img-placeholder">[Image: Happy Student]</div>
+            <div class="img-placeholder">[Image: Loading the Van]</div>
+            <div class="img-placeholder">[Image: School Library]</div>
+            <div class="img-placeholder">[Image: Team Sorting]</div>
+        </section>
+
+        <section class="contribution-list">
+            <h2>How You Can Help</h2>
+            <ul>
+                <li><strong>Gently Used Books:</strong> We accept K-12 fiction and non-fiction titles.</li>
+                <li><strong>Financial Grants:</strong> Funds go directly toward MediaMail shipping costs.</li>
+                <li><strong>Corporate Sponsorship:</strong> Partner your business with our Target 4 schools.</li>
+                <li><strong>Volunteer Time:</strong> Join us on our monthly sorting Saturdays in Knoxville.</li>
+                <li><strong>Community Bins:</strong> Host a donation bin at your local place of business.</li>
+            </ul>
+        </section>
+
+        <section style="text-align: center; margin-top: 50px;">
+            <p>Ready to make a financial contribution?</p>
+            <a href="https://www.paypal.com/nonprofits" target="_blank" class="external-btn">Donate via PayPal Secure &rarr;</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Love for Literacy. Every book counts.</p>
+    </footer>
+
+</body>
+</html>

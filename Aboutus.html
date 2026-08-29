@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --bg-cream: #F9F5F0;
+            --dark-maroon: #3B2422;
+            --btn-rose: #B2706B;
+            --nav-line: #E8E4DF;
+            --paper-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-cream);
+            color: var(--dark-maroon);
+        }
+
+        /* Nav */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--nav-line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark-maroon);
+            transition: opacity 0.2s;
+        }
+        .logo-link:hover { opacity: 0.8; }
+
+        .nav-book-logo { height: 40px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; }
+        .nav-links a { text-decoration: none; color: #555; margin: 0 15px; font-size: 14px; font-weight: 500; }
+        
+        .btn-support { 
+            background-color: var(--btn-rose); 
+            color: white !important; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-support:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 64px; margin: 0; }
+
+        .catchy-phrase {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            line-height: 1.4;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+
+        /* History Section */
+        .history-wrap-container {
+            margin-bottom: 80px;
+            display: block;
+            overflow: hidden;
+        }
+
+        .history-img-box {
+            float: right; 
+            width: 400px; 
+            height: 300px;
+            background-image: url('https://codehs.com/uploads/4c3ee1e51294ad81033b2e2aed4e76dd');
+            background-size: cover;
+            background-position: center;
+            border: 12px solid white;
+            margin-left: 30px; 
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: var(--paper-shadow);
+            transform: rotate(2deg);
+            transition: 0.4s ease;
+        }
+        .history-img-box:hover { transform: rotate(0deg) scale(1.02); }
+
+        .history-text {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #5a4b49;
+        }
+
+        /* Scrapbook Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+            clear: both;
+            perspective: 1000px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            height: 280px;
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+            border: 8px solid white;
+            box-shadow: var(--paper-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gallery-img-content {
+            flex-grow: 1;
+            background-image: url('https://codehs.com/uploads/4c3ee1e51294ad81033b2e2aed4e76dd');
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+        }
+
+        /* Giving each one a slightly different "view" of the image */
+        .gallery-item:nth-child(2) .gallery-img-content { background-position: top; }
+        .gallery-item:nth-child(3) .gallery-img-content { background-position: bottom; }
+        .gallery-item:nth-child(4) .gallery-img-content { background-position: left; }
+        .gallery-item:nth-child(5) .gallery-img-content { background-position: right; }
+
+        .gallery-item:hover {
+            transform: rotateY(-15deg) rotateX(5deg) scale(1.05);
+            box-shadow: 15px 15px 25px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .gallery-item:nth-child(odd) { transform: rotate(-2deg); }
+        .gallery-item:nth-child(even) { transform: rotate(2deg); }
+
+        .item-label {
+            text-align: center;
+            padding: 10px 0;
+            font-family: 'Playfair Display', serif;
+            color: #b2706b;
+            font-style: italic;
+            background: white;
+            font-size: 16px;
+        }
+
+        .values-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--nav-line);
+            box-shadow: var(--paper-shadow);
+        }
+
+        .values-section h2 { font-family: 'Playfair Display', serif; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 15px; font-size: 18px; }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid var(--nav-line);
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <img src="https://codehs.com/uploads/7889b9b5566baa8f49db6e35c5961f2e" alt="Logo" class="nav-book-logo">
+                <div class="logo-text">Love for Literacy</div>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Calendar.html">Events</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="contact.html" class="btn-support">Support Our Mission</a>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Our Story</h1>
+        </header>
+
+        <section class="catchy-phrase">
+            <p>
+                Every book has a story,<br>
+                Every chapter has an end.<br>
+                So Welcome to Love for Literacy's beginnings...
+            </p>
+        </section>
+
+        <section class="history-wrap-container">
+            <div class="history-img-box"></div>
+            
+            <div class="history-text">
+                <p>
+                    Love for Literacy was officially founded in 2026 by a dedicated team of Farragut students seeking to bridge the literacy gap within  Tennessees´ community. What began as a conversation about the lack of diverse reading materials in rural and low-income school districts quickly transformed into a mission-driven club focused on real-world impact. 
+                </p>
+                <p>
+                    By mobilizing local youth and partnering with community leaders, we have built a sustainable network that sources, sorts, and delivers quality literature to underserved areas. Our teams mission is to ensure that no zip code, no income, and no school stops a child from unlocking their love for literacy.
+                </p>
+            </div>
+        </section>
+
+        <section class="image-gallery">
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">The Kickoff</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">Behind the Scenes</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">Special Delivery</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">Our Partners</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">Happy Readers</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img-content"></div>
+                <span class="item-label">To Be Continued...</span>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Core Values</h2>
+            <ul>
+                <li><strong>Equity:</strong> Equalizing access to knowledge across all zip codes.</li>
+                <li><strong>Curation:</strong> Providing only the highest quality educational resources.</li>
+                <li><strong>Integrity:</strong> Operating with 100% transparency in our logistics.</li>
+                <li><strong>Youth Leadership:</strong> Empowering Farragut students to lead.</li>
+                <li><strong>Sustainability:</strong> Building a long-term resource for our Tennessee branches.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Check out our <a href="https://docs.google.com/document/d/1M59ormwjHiOo_ORlnxJPCHl1DWZqfbhFBadfF3_2IU4/edit?tab=t.nkl33bjtgejc" target="_blank" style="color:var(--btn-rose); font-weight:bold;">Click Here For Our Club Outline &rarr;</a></p>
+        </footer>
+    </main>
+
+</body>
+</html>

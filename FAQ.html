@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --bg-cream: #F9F5F0;
+            --dark-maroon: #3B2422;
+            --btn-rose: #B2706B;
+            --nav-line: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-cream);
+            color: var(--dark-maroon);
+        }
+
+        /* Nav */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--nav-line);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .nav-book-logo { height: 40px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; }
+        .nav-links a { text-decoration: none; color: #555; margin: 0 15px; font-size: 14px; font-weight: 500; }
+        .btn-support { background-color: var(--btn-rose); color: white !important; padding: 12px 25px; border-radius: 30px; font-weight: 600; transition: 0.3s; text-decoration: none; }
+        .btn-support:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        header { padding: 60px 20px; text-align: center; background-color: white; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 52px; margin: 0; }
+
+        .faq-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .faq-item { background: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; border: 1px solid var(--nav-line); }
+        .faq-question { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 15px; display: block; }
+        .faq-answer { font-size: 16px; line-height: 1.7; color: #5a4b49; }
+        
+        /* Dropdown/Hidden Logic */
+        .hidden-faq { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .show-more-btn {
+            background: none;
+            border: 2px solid var(--btn-rose);
+            color: var(--btn-rose);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: 0.3s;
+        }
+        .show-more-btn:hover { background: var(--btn-rose); color: white; }
+
+        .sidebar-rubric { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-box { background: var(--dark-maroon); color: var(--bg-cream); padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+        .sidebar-box h3 { font-family: 'Playfair Display', serif; margin-top: 0; }
+        .sidebar-box ul { padding-left: 20px; line-height: 1.8; }
+        
+        .book-link-container { text-align: center; margin: 80px 0; grid-column: span 2; }
+        
+        /* Updated book-icon to work as a link block */
+        .book-icon {
+            width: 100px; height: 130px; background: var(--btn-rose); 
+            border-radius: 4px 15px 15px 4px; margin: 20px auto; 
+            position: relative; transition: 0.3s;
+            border-left: 8px solid #8e5551; cursor: pointer;
+            display: block; /* Ensures the link covers the whole area */
+        }
+        .book-icon:hover { transform: rotate(-5deg) scale(1.1); }
+        .book-icon::after { content: 'FAQ?'; color: white; position: absolute; top: 40%; left: 20%; font-weight: bold; }
+
+        footer { text-align: center; padding: 60px; border-top: 1px solid var(--nav-line); margin-top: 60px; }
+        
+        .contact-inline-link { color: inherit; text-decoration: underline; font-weight: bold; }
+        .contact-inline-link:hover { color: var(--btn-rose); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://codehs.com/uploads/7889b9b5566baa8f49db6e35c5961f2e" alt="Logo" class="nav-book-logo">
+            <div class="logo-text">Love for Literacy</div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Calendar.html">Events</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="contact.html" class="btn-support">Support Our Mission</a>
+        </div>
+    </nav>
+
+    <header><h1>Club Questions</h1></header>
+
+    <main class="faq-container">
+        <section id="faq-list">
+            <div class="faq-item">
+                <span class="faq-question">Do I need to bring my own books?</span>
+                <div class="faq-answer">It’s not required, however we encourage any donations possible!</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Do I need to participate in every fundraiser?</span>
+                <div class="faq-answer">Everyone needs to participate in at least two fundraisers! However the fundraising team can and will be in charge of that.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">How often do we meet?</span>
+                <div class="faq-answer">Twice a month on Thursdays! Right after school for 40 min. However, during book drives it will be a 1 hour long.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Do I get service hours for this?</span>
+                <div class="faq-answer">Yes! An attendance sheet will be at every meeting, and if you speak to our teacher sponsor separately they can sign off on your hours. Meetings where we pack, ship, or fundraise count, and at the end of the month the sponsor can sign off on your hours form based off attendance.</div>
+            </div>
+
+            <div class="hidden-faq">
+                <div class="faq-item">
+                    <span class="faq-question">What will we actually do during meetings?</span>
+                    <div class="faq-answer">
+                        We’ll break into teams. Officers will run each team:
+                        <ul>
+                            <li>Sorting/packing run by VP</li>
+                            <li>Grant list/fundraising run by treasurer</li>
+                            <li>Posters/websites/social media run by the Secretary</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <span class="faq-question">What is the "Literature Engaging Activity"?</span>
+                    <div class="faq-answer">At the end of the day, our goal isn’t just to drop off boxes and check the mark. We want to make sure we actually make an impact. We’ll choose a donation school and host "Reading Circles" or "Bookmark Workshops" to get kids excited about literature.</div>
+                </div>
+
+                <div class="faq-item">
+                    <span class="faq-question">How many students do we serve?</span>
+                    <div class="faq-answer">As many as possible! We target low income elementary schools. After our target of 4 schools per year, we could reach well over 300 kids annually.</div>
+                </div>
+
+                <div class="faq-item">
+                    <span class="faq-question">What happens if we get more books than you can ship?</span>
+                    <div class="faq-answer">That's great! We’ll store them safely and use grants/fundraiser money to ship them later. Any remaining at the end of the year are saved for the next cycle or donated locally.</div>
+                </div>
+
+                <div class="faq-item">
+                    <span class="faq-question">Whats my role in the club?</span>
+                    <div class="faq-answer">
+                        You’ll choose one of three teams (which you can rotate later):
+                        <br><br>• <strong>Creative:</strong> Socials, campaigns, and flyers.
+                        <br>• <strong>Logistics:</strong> Sorting and packing donations.
+                        <br>• <strong>Finance:</strong> Fundraising and Grant applications.
+                    </div>
+                </div>
+            </div>
+
+            <button class="show-more-btn" id="load-more" onclick="showMore()">View More Questions</button>
+        </section>
+
+        <aside class="sidebar-rubric">
+            <div class="sidebar-box">
+                <h3>Club Fast Facts</h3>
+                <ul>
+                    <li>Official Farragut Student Org</li>
+                    <li>Serving 300+ Rural Students</li>
+                    <li>2 Monthly Sorting Sessions</li>
+                    <li>Teacher Sponsored Program</li>
+                    <li>4 Annual Partner Schools</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="book-link-container">
+            <h2 style="font-family: 'Playfair Display';">Still curious?</h2>
+            
+            <a href="contact.html" class="book-icon"></a>
+            
+            <p>Click the book to visit our <a href="contact.html" class="contact-inline-link">Contact</a> page.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p style="font-size: 12px;">Reference our <a href="https://www.knoxschools.org" target="_blank" style="color: #999;">District Guidelines</a></p>
+    </footer>
+
+    <script>
+        function showMore() {
+            const hiddenDiv = document.querySelector('.hidden-faq');
+            const btn = document.getElementById('load-more');
+            
+            hiddenDiv.style.display = 'block';
+            setTimeout(() => {
+                hiddenDiv.style.opacity = '1';
+            }, 10);
+            
+            btn.style.display = 'none'; 
+        }
+    </script>
+
+</body>
+</html>

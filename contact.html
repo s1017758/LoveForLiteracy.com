@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --bg-cream: #F9F5F0;
+            --dark-maroon: #3B2422;
+            --btn-rose: #B2706B;
+            --nav-line: #E8E4DF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-cream);
+            color: var(--dark-maroon);
+        }
+
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--nav-line);
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .nav-book-logo { height: 40px; width: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; }
+        .nav-links a { text-decoration: none; color: #555; margin: 0 15px; font-size: 14px; font-weight: 500; }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            border-bottom: 45px solid var(--dark-maroon);
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 58px; margin: 0; }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 32px; }
+        .contact-info p { font-size: 18px; line-height: 1.8; color: #5a4b49; }
+
+        /* Contact Team Image Styled */
+        .contact-team-img {
+            width: 100%;
+            height: 350px;
+            background-image: url('https://codehs.com/uploads/2a1a2ee16a6c5677af393f79a49fd234');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .join-section {
+            background-color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        .join-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 20px; }
+
+        /* Bubble Grid Styling */
+        .bubble-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .bubble {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .bubble:hover { transform: scale(1.1); z-index: 5; }
+
+        .bubble-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1);
+            transition: filter 0.4s ease;
+        }
+
+        .bubble:hover .bubble-img { filter: brightness(0.5) blur(2px); }
+
+        .bubble-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .bubble:hover .bubble-overlay { opacity: 1; }
+
+        .expectations {
+            text-align: left;
+            display: inline-block;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        .expectations h3 { font-family: 'Playfair Display', serif; color: var(--btn-rose); }
+        ul { line-height: 2; font-size: 17px; }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid var(--nav-line);
+            background: white;
+            margin-top: 80px;
+        }
+
+        .ext-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--dark-maroon);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid var(--btn-rose);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://codehs.com/uploads/7889b9b5566baa8f49db6e35c5961f2e" alt="Logo" class="nav-book-logo">
+            <div class="logo-text">Love for Literacy</div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Calendar.html">Events</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Get In Touch</h1>
+    </header>
+
+    <main>
+        <section class="contact-grid">
+            <div class="contact-info">
+                <h2>Have More Questions?</h2>
+                <p>
+                    Whether you are a local educator looking to partner with us, or a donor wondering how to drop off your collection, we are here to help. Our team operates out of Knoxville and we try to respond to all inquiries within two business days.
+                </p>
+                <p><strong>Email:</strong> loveforliteracy2323@gmail.com <br>
+                   <strong>Office:</strong> 11237 Kingston Pike, Knoxville, TN</p>
+            </div>
+            <div>
+                <div class="contact-team-img"></div>
+            </div>
+        </section>
+
+        <section class="join-section">
+            <h2>Want to Join the Club?</h2>
+            <p>We are always looking for passionate students and community members to help us pack, sort, and deliver stories to those who need them most.</p>
+
+            <div class="bubble-grid">
+                <div class="bubble">
+                    <img src="https://codehs.com/uploads/6eec80d2f44341d58e97ea024dc07aad" class="bubble-img">
+                    <div class="bubble-overlay">Packing Day</div>
+                </div>
+                <div class="bubble">
+                    <img src="https://codehs.com/uploads/2a1a2ee16a6c5677af393f79a49fd234" class="bubble-img">
+                    <div class="bubble-overlay">Our Team</div>
+                </div>
+                <div class="bubble">
+                    <img src="https://codehs.com/uploads/bc17e438b23273660fa29b81abc3fd70" class="bubble-img">
+                    <div class="bubble-overlay">Delivery Day</div>
+                </div>
+                <div class="bubble">
+                    <img src="https://codehs.com/uploads/6f43dcf7b72b287b940d44575c6acae7" class="bubble-img">
+                    <div class="bubble-overlay">Sorting Books</div>
+                </div>
+                <div class="bubble">
+                    <img src="https://codehs.com/uploads/31b402b7d8336c576ac5e23e710ebfee" class="bubble-img">
+                    <div class="bubble-overlay">Volunteering</div>
+                </div>
+            </div>
+
+            <div class="expectations">
+                <h3>Member Expectations</h3>
+                <ul>
+                    <li>Attend at least one sorting event per month.</li>
+                    <li>Help maintain the digital donation inventory log.</li>
+                    <li>Promote local book drives within your neighborhood.</li>
+                    <li>Assist in the safe transport of materials to rural sites.</li>
+                    <li>Commit to a semester of advocacy for literacy equity.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ready to sign up?</p>
+        <a href="https://forms.gle/fE5NKeNwamZRNRx48" target="_blank" class="ext-link">Fill out the Member Interest Form &rarr;</a>
+    </footer>
+
+</body>
+</html>
